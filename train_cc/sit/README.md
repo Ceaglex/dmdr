@@ -33,7 +33,7 @@ We use SiT-XL trained with [REPA](https://github.com/sihyun-yu/REPA) to initiali
 Just run the following command to download the pretrained SiT-XL-REPA model (You need to change the `save_dir` in the python scripts else the ckpt would be put into `sit_weights/`)
 ```bash
 cd train_cc/sit
-python convert_weight/sit_convert.py
+python convert_weight/sit_conver.py
 ````
 
 
@@ -85,4 +85,5 @@ Some options you need to complete or adjust in the bash scripts:
 - `--resume-ckpt`: Path to the `torch_units/step-xxx.pt` to resume training (only used in the second stage of training)
 
 #
+
 
