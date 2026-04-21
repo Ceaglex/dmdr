@@ -87,3 +87,23 @@ Some options you need to complete or adjust in the bash scripts:
 #
 
 
+
+## 🔎 Quick Inference Check (label-conditioned)
+
+After you convert the REPA checkpoint to `sit_xl_repa_in1k_800ep_nopjhead.pt`, you can run a quick label-conditioned generation check:
+
+```bash
+cd train_cc/sit
+python infer_sit_label.py \
+  --pretrain-path sit_weights/sit_xl_repa_in1k_800ep_nopjhead.pt \
+  --labels 0,1,2,3 \
+  --num-samples-per-label 1 \
+  --num-steps 8 \
+  --sampler v2x0 \
+  --resolution 256 \
+  --out samples/infer_label_check.png
+```
+
+Notes:
+- `--labels` must be ImageNet class IDs in `[0, 999]`.
+- If you have already downloaded VAE locally, pass `--vae-path /your/local/sd-vae-ft-ema`.
